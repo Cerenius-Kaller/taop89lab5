@@ -37,4 +37,17 @@ def getMinAndIncrease(cf,n):
 
 def setmax(index,array):
     array[index] = np.iinfo(array.dtype).max
-        
+    
+
+def getgreedyfactories(cavg, demand, supply, amount):
+    sum = 0
+   
+    indexs = []
+    cavg2 = copy.deepcopy(cavg)
+    for i in range(amount): 
+        index = np.argmin(cavg2)
+        sum += supply[index]
+        cavg2[index] = np.iinfo(cavg2.dtype).max
+        indexs.append(index)
+    
+    return (indexs)
