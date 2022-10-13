@@ -1,3 +1,0 @@
-Vilken är den globalt billigaste vägen till varje kund?
-Summera efterfrågan, hur många fabriker krävs som minst?
-Vilken fabrik är billigast att bygga?
