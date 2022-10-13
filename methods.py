@@ -39,7 +39,7 @@ def setmax(index,array):
     array[index] = np.iinfo(array.dtype).max
     
 
-def getgreedyfactories(cavg, demand, supply, amount):
+def getgreedyfactories(cavg, supply, amount):
     sum = 0
    
     indexs = []

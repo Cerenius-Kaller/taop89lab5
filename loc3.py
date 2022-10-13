@@ -29,30 +29,10 @@ y=np.zeros((m),dtype=int)
 
 ss=copy.deepcopy(s)
 dd=copy.deepcopy(d)
+cf =copy.deepcopy(c)
 
-#Choose factory
-indexes = getleastnrgreedyfactories(c.sum(axis=1),d.sum(), s)
-
-#Kvot hur gärna man vill bygga
-kvot = d.mean()*c.mean()/f.mean()
-print("Kvot avg cost to send per avg cost to build", kvot)
-print("Kvot inte byggda fabriker", (m-len(indexes))/m)
-
-#Hur många mer som ska byggas än greedy
-amount = ((m-len(indexes))/m) * 1.67**(kvot)  + len(indexes)
-
-if amount > m:
-    amount = m
-
-# if(kvot > 2): 
-indexes = getgreedyfactories(c.sum(axis=1), s,int(amount))
-
-for i in indexes:
+for i in range(0,m):
     y[i] = 1
-
-cf = copy.deepcopy(c)
-cf[np.setdiff1d(range(m), indexes)] = np.iinfo(cf.dtype).max
-
 
 while sum(dd)>0:
     bestindex = getMinAndIncrease(cf, n)
@@ -70,6 +50,9 @@ while sum(dd)>0:
         x[bestindex] = currentdemand
     # print(cf)
     
+print(s)
+print(s-ss)
+print((s-ss).mean()*2/3)
 
 
 elapsed = time.time() - t1
