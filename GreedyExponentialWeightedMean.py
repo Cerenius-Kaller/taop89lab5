@@ -44,7 +44,7 @@ def GreedyExponenialWeightedMean(fil,factor):
         amount = m
 
     # if(kvot > 2): 
-    indexes = getgreedyfactories(c.sum(axis=1), s,int(amount))
+    indexes = getgreedyfactories(c.sum(axis=1),int(amount))
 
     for i in indexes:
         y[i] = 1

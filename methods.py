@@ -5,16 +5,16 @@ import copy
 import sys
 limit = -1
 
-def getleastnrfactories(d, s):
-    demand = d.sum()
-    counter = 0
-    supply = -np.sort(-s, kind ='mergesort')
-    summa = 0
-    for i in supply:
-        summa+=i
-        counter+=1
-        if summa >= demand:
-            break
+# def getleastnrfactories(d, s):
+#     demand = d.sum()
+#     counter = 0
+#     supply = -np.sort(-s, kind ='mergesort')
+#     summa = 0
+#     for i in supply:
+#         summa+=i
+#         counter+=1
+#         if summa >= demand:
+#             break
 def getleastnrgreedyfactories(cavg, demand, supply):
     sum = 0
    
@@ -39,15 +39,11 @@ def setmax(index,array):
     array[index] = np.iinfo(array.dtype).max
     
 
-def getgreedyfactories(cavg, supply, amount):
-    sum = 0
-   
+def getgreedyfactories(cavg, amount):
     indexs = []
     cavg2 = copy.deepcopy(cavg)
     for i in range(amount): 
         index = np.argmin(cavg2)
-        sum += supply[index]
         cavg2[index] = np.iinfo(cavg2.dtype).max
         indexs.append(index)
-    
     return (indexs)
