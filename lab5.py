@@ -4,9 +4,8 @@ import time
 import sys
 import copy
 from math import floor
-from methods import *
 
-e = 100
+e = 1
 
 # Get the max value the array type can hold
 # Can be used to "punish" values in matrix/vector by making them the most expensive
